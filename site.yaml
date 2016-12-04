@@ -1,0 +1,23 @@
+---
+
+- name: Common tasks
+  hosts: all
+  remote_user: centos
+  become: yes
+  become_method: sudo
+  vars_files:
+    - "group_vars/group-variables.yaml"
+  roles:
+    - role_name
+  tasks:
+    - include: tasks/global_task.yaml
+
+- name: Nginx tasks
+  hosts: tag_Role_value #used for dynamic inventory: ec2 with tag Role == value
+  remote_user: centos
+  become: yes
+  become_method: sudo
+  vars_files:
+    - "group_vars/group-variables.yaml"
+  tasks:
+    - include: tasks/task.yml
