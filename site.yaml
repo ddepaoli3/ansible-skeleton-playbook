@@ -5,6 +5,7 @@
   remote_user: centos
   become: yes
   become_method: sudo
+  gather_facts: no
   vars_files:
     - "group_vars/group-variables.yaml"
   roles:
