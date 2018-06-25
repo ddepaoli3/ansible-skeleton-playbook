@@ -10,7 +10,10 @@
   roles:
     - role_name
   tasks:
+    - name: Install ansible and python 2.7
+      raw: apt-get update && apt-get install --yes ansible # Only for debian based
     - include: tasks/global_task.yaml
+
 
 - name: Nginx tasks
   hosts: tag_Role_value #used for dynamic inventory: ec2 with tag Role == value
