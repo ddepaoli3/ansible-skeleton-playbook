@@ -1,17 +1,23 @@
 ---
 
-- name: Common tasks
+- name: Install python2.7 when not present
   hosts: all
   become: yes
   become_method: sudo
   gather_facts: no
+  pre_tasks:
+    - name: Install ansible and python 2.7
+      raw: apt-get update && apt-get install --yes ansible
+
+- name: Common tasks
+  hosts: all
+  become: yes
+  become_method: sudo
   vars_files:
     - "group_vars/group-variables.yaml"
   roles:
     - role_name
   tasks:
-    - name: Install ansible and python 2.7
-      raw: apt-get update && apt-get install --yes ansible # Only for debian based
     - include: tasks/global_task.yaml
 
 
