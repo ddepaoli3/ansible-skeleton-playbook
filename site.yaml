@@ -2,7 +2,6 @@
 
 - name: Common tasks
   hosts: all
-  remote_user: centos
   become: yes
   become_method: sudo
   gather_facts: no
@@ -18,7 +17,6 @@
 
 - name: Nginx tasks
   hosts: tag_Role_value #used for dynamic inventory: ec2 with tag Role == value
-  remote_user: centos
   become: yes
   become_method: sudo
   vars_files:
