@@ -28,4 +28,4 @@
   vars_files:
     - "group_vars/group-variables.yaml"
   tasks:
-    - include: tasks/task.yml
+    - include: tasks/task.yaml
